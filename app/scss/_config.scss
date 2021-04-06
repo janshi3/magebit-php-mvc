@@ -1,0 +1,68 @@
+// Colors
+
+$primary-color: #4066A5;
+$text-light: #6a707b;
+$text-dark: #131821;
+$text-error: rgb(180, 78, 78);
+$border-color: #e3e3e4;
+$gradient-accent: #f2f5fa;
+$link-pressed: #233759;
+$shadow-color: rgba(19, 24, 33, 0.06);
+$white: #ffffff;
+
+// Gradients
+
+$gradient-card: linear-gradient(180deg, $white 0%, $gradient-accent 100%);
+
+// Social Icons
+
+$shadow-social: rgba(19, 24, 33, 0.3);
+
+$social-hover: (
+    "fb": #4267B2,
+    "ig": #C13584,
+    "tw": #1DA1F2,
+    "yt": #FF0000,
+);
+
+$social-pressed: (
+    "fb": #2F4A80,
+    "ig": #8F2762,
+    "tw": #177FBF,
+    "yt": #CC0000,
+);
+
+// Resets
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+a, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+// Mixins
+
+// Hover and Active effect for each Social Link
+
+@mixin socialIcon($initials) {
+    
+    .#{$initials} {
+
+        &:hover {
+            background: map-get($social-hover, $initials);
+            box-shadow: 0px 20px 40px $shadow-social;
+            transition: 500ms;
+        }
+    
+        &:active {
+            background: map-get($social-pressed, $initials);
+            box-shadow: 0px 20px 40px $shadow-social;
+        }
+    }
+}

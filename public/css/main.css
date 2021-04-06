@@ -1,0 +1,544 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+a, a:visited, a:hover, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.desktop-margin {
+  height: 0;
+  width: 0;
+}
+
+.success-margin {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+.image {
+  display: none;
+}
+
+.nav {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.nav__link {
+  display: none;
+}
+
+.nav-left {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-left: auto;
+  margin-right: 20px;
+  margin-top: 21px;
+  margin-bottom: 21px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav-left__item {
+  margin-left: 20px;
+  font-size: 14px;
+  line-height: 171%;
+  color: #6a707b;
+}
+
+.logo {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.main {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  background-image: url("../img/image_summer.png");
+  background-size: cover;
+  padding: 0 20px;
+}
+
+.card {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f2f5fa));
+  background: linear-gradient(180deg, #ffffff 0%, #f2f5fa 100%);
+  padding: 20px;
+  border: 1px solid #e3e3e4;
+}
+
+.card__item {
+  margin: 10px 0;
+}
+
+.card__input {
+  display: block;
+  height: 60px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.card__input__field {
+  height: 100%;
+  width: 100%;
+  padding: 17px 15px;
+  border-top: 1px solid #e3e3e4;
+  border-bottom: 1px solid #e3e3e4;
+  border-left: 4px solid #4066A5;
+  border-right: 1px solid #e3e3e4;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.card__input__field:focus {
+  -webkit-box-shadow: 0px 30px 40px rgba(19, 24, 33, 0.06);
+          box-shadow: 0px 30px 40px rgba(19, 24, 33, 0.06);
+}
+
+.card__input__field:hover {
+  border-color: #4066A5;
+  -webkit-box-shadow: 0px 30px 40px rgba(19, 24, 33, 0.06);
+          box-shadow: 0px 30px 40px rgba(19, 24, 33, 0.06);
+}
+
+.card__input__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+  position: absolute;
+  height: 100%;
+  width: 55px;
+  bottom: 0%;
+  right: 0;
+  background: transparent;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.card__error {
+  font-size: 14px;
+  line-height: 150%;
+  color: #b44e4e;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.card__checkbox {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+}
+
+.card__checkbox--old {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.card__checkbox--unchecked {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card__checkbox--checked {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card__checkbox__icon {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+}
+
+#toggle:checked ~ .card__checkbox--unchecked {
+  display: none;
+}
+
+#toggle:checked ~ .card__checkbox--checked {
+  display: block;
+}
+
+.card__terms {
+  font-size: 16px;
+  line-height: 175%;
+  color: #6a707b;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 15px;
+}
+
+.card__terms__link {
+  color: #131821;
+  text-decoration: underline;
+}
+
+.card__terms__link:hover {
+  color: #4066A5;
+  text-decoration: underline;
+}
+
+.card__terms__link:active {
+  color: #233759;
+  text-decoration: underline;
+}
+
+.card__cup {
+  margin-top: 10px;
+}
+
+.card__success {
+  margin-top: 37px;
+  margin-bottom: 37px;
+}
+
+.card__social-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-right: 15px;
+}
+
+.card__social-icons__link {
+  border: 2px solid #e3e3e4;
+  border-radius: 50%;
+  margin: 0 5px;
+  width: 46px;
+  height: 46px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.fb:hover {
+  background: #4267B2;
+  -webkit-box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+          box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+  -webkit-transition: 500ms;
+  transition: 500ms;
+}
+
+.fb:active {
+  background: #2F4A80;
+  -webkit-box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+          box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+}
+
+.ig:hover {
+  background: #C13584;
+  -webkit-box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+          box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+  -webkit-transition: 500ms;
+  transition: 500ms;
+}
+
+.ig:active {
+  background: #8F2762;
+  -webkit-box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+          box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+}
+
+.tw:hover {
+  background: #1DA1F2;
+  -webkit-box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+          box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+  -webkit-transition: 500ms;
+  transition: 500ms;
+}
+
+.tw:active {
+  background: #177FBF;
+  -webkit-box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+          box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+}
+
+.yt:hover {
+  background: #FF0000;
+  -webkit-box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+          box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+  -webkit-transition: 500ms;
+  transition: 500ms;
+}
+
+.yt:active {
+  background: #CC0000;
+  -webkit-box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+          box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #ffffff;
+  color: #131821;
+  height: 100vh;
+}
+
+h1, h2, h3, p {
+  font-weight: 400;
+}
+
+h2 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 24px;
+  line-height: 142%;
+}
+
+h3, p, a {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+  font-size: 14px;
+  line-height: 186%;
+  color: #6a707b;
+}
+
+p {
+  font-size: 16px;
+  line-height: 175%;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+hr {
+  border: 1px solid #e3e3e4;
+  margin-top: 7px;
+}
+
+@media only screen and (min-width: 650px) {
+  .main {
+    background-image: url("../img/image_summer_desktop.png");
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  h2 {
+    font-size: 32px;
+    line-height: 137%;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 175%;
+  }
+  body {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  hr {
+    margin: 0;
+  }
+  .container {
+    width: 680px;
+    height: 100vh;
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    padding: 100px 100px 0 100px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f2f5fa));
+    background: linear-gradient(180deg, #ffffff 0%, #f2f5fa 100%);
+  }
+  .image {
+    display: block;
+    background-image: url("../img/image_summer_desktop.png");
+    background-size: cover;
+    height: 100vh;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    z-index: -1;
+  }
+  .logo {
+    margin: 0;
+  }
+  .desktop-margin {
+    margin-bottom: 80%;
+  }
+  .success-margin {
+    display: block;
+    margin-bottom: -10px;
+  }
+  .nav {
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    width: 100%;
+  }
+  .nav__link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    margin-left: 15px;
+    margin-bottom: 7px;
+  }
+  .nav-left {
+    margin: 0;
+    margin-left: auto;
+    margin-bottom: 2px;
+  }
+  .nav-left__item {
+    font-size: 16px;
+    line-height: 162%;
+    margin-left: 30px;
+  }
+  .main {
+    background: none;
+    padding: 40px;
+  }
+  .card {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: auto;
+  }
+  .card__item {
+    margin-bottom: 50px;
+    margin-top: 0;
+  }
+  .card__header {
+    margin-bottom: 15px;
+  }
+  .card__description {
+    margin-top: 15px;
+  }
+  .card__input {
+    width: 665px;
+    height: 70px;
+    margin-left: -40px;
+    margin-bottom: 25px;
+  }
+  .card__input__field {
+    padding-left: 40px;
+  }
+  .card__input__btn {
+    width: 85px;
+    padding-right: 20px;
+  }
+  .card__error {
+    font-size: 16px;
+    line-height: 175%;
+  }
+  .card__terms, .card__checkbox {
+    margin-top: 25px;
+  }
+  .card__cup {
+    margin-top: 10px;
+  }
+  .card__success {
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+  .card__social-icons {
+    margin-top: 50px;
+    padding-right: 0;
+  }
+  .card__social-icons__link {
+    margin: 0 10px;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-height: 675px) {
+  .container {
+    padding: 0 100px;
+  }
+  .main {
+    padding-top: 20px;
+  }
+  .card__item {
+    margin-bottom: 20px;
+  }
+  .card__social-icons {
+    margin-top: 20px;
+  }
+}
+/*# sourceMappingURL=main.css.map */

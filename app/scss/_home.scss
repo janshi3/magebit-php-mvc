@@ -1,0 +1,260 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.desktop-margin {
+    height: 0;
+    width: 0;
+}
+
+.success-margin {
+    display: none;
+    height: 0;
+    width: 0;
+}
+
+.image {
+    display: none;
+}
+
+// Navigation
+
+.nav {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+
+    &__link{
+        display: none;
+    }
+}
+
+.nav-left {
+    align-self: flex-end;
+    margin-left: auto;
+    margin-right: 20px;
+    margin-top: 21px;
+    margin-bottom: 21px;
+    display: flex;
+
+    &__item {
+        margin-left: 20px;
+        font-size: 14px;
+        line-height: 171%;
+        color: $text-light;
+    }
+}
+
+.logo {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+// Main
+
+.main {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
+    background-image: url("../img/image_summer.png");
+    background-size: cover;
+    padding: 0 20px;
+}
+
+// Card
+
+.card {
+    background: $gradient-card;
+    padding: 20px;
+    border: 1px solid $border-color;
+
+    &__item {
+        margin: 10px 0;
+    }
+
+    // Email Form
+
+    &__input {
+        display: block;
+        height: 60px;
+        margin-top: 20px;
+        position: relative;
+
+        // Email Input Field
+
+        &__field {
+            height: 100%;
+            width: 100%;
+            padding: 17px 15px;
+            border-top: 1px solid $border-color;
+            border-bottom: 1px solid $border-color;
+            border-left: 4px solid $primary-color;
+            border-right: 1px solid $border-color;
+            font-size: 16px;
+            line-height: 150%;
+
+            &:focus {
+                box-shadow: 0px 30px 40px $shadow-color;
+            }
+
+            &:hover {
+                border-color: $primary-color;
+                box-shadow: 0px 30px 40px $shadow-color;
+            }
+        }
+
+        // Input Field Button
+
+        &__btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            position: absolute;
+            height: 100%;
+            width: 55px;
+            bottom: 0%;
+            right: 0;
+            background: transparent;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            }
+        }
+
+    // Errors
+
+    &__error {
+        font-size: 14px;
+        line-height: 150%;
+        color: $text-error;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    // Checkbox
+
+    &__checkbox {
+        display: inline-block;
+        width: 26px;
+        height: 26px;
+        position: relative;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -webkit-user-drag: none;
+        user-select: none;
+
+        &--old {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        &--unchecked {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        &--checked {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        &__icon {
+            position: absolute;
+            top: 25%;
+            left: 25%;
+        }
+
+        #toggle:checked ~ &--unchecked {
+            display: none;
+        }
+
+        #toggle:checked ~ &--checked {
+            display: block;
+        }
+    }
+
+    // Terms and Services
+
+    &__terms {
+        font-size: 16px;
+        line-height: 175%;
+        color: $text-light;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 15px;
+
+        &__link {
+            color: $text-dark;
+            text-decoration: underline;
+
+            &:hover {
+                color: $primary-color;
+                text-decoration: underline;
+            }
+
+            &:active {
+                color: $link-pressed;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    // Success Message
+
+    &__cup{
+        margin-top: 10px;
+    }
+
+    &__success {
+        margin-top: 37px;
+        margin-bottom: 37px;
+    }
+
+    // Social Icons
+
+    &__social-icons {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        padding-right: 15px;
+
+        &__link {
+            border: 2px solid $border-color;
+            border-radius: 50%;
+            margin: 0 5px;
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+    }
+
+    
+}
+
+// Social Icons active / hover
+
+@include socialIcon("fb");
+
+@include socialIcon("ig");
+
+@include socialIcon("tw");
+
+@include socialIcon("yt");

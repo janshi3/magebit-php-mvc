@@ -1,0 +1,185 @@
+// Change Background Image
+
+@media only screen and (min-width: 650px) {
+
+    .main {
+        background-image: url("../img/image_summer_desktop.png");
+    }
+}
+
+
+@media only screen and (min-width: 1024px) {
+    
+    h2 {
+        font-size: 32px;
+        line-height: 137%;
+    }
+
+    h3 {
+        font-size: 16px;
+        line-height: 175%;
+    }
+    
+    body {
+        flex-direction: row;
+    }
+
+    hr {
+        margin: 0;
+    }
+
+    .container {
+        width: 680px;
+        height: 100vh;
+        flex-grow: 0;
+        padding: 100px 100px 0 100px;
+        background: $gradient-card;
+    }
+
+    .image {
+        display: block;
+        background-image: url('../img/image_summer_desktop.png');
+        background-size: cover;
+        height: 100vh;
+        flex-grow: 1;
+        z-index: -1;
+    }
+
+    .logo {
+        margin: 0;
+    }
+
+    .desktop-margin {
+        margin-bottom: 80%;
+    }
+
+    .success-margin {
+        display: block;
+        margin-bottom: -10px;
+    }
+
+    // Navigation
+
+    .nav {
+
+        align-items: flex-end;
+        width: 100%;
+
+        &__link {
+            display: flex;
+            align-items: flex-end;
+            margin-left: 15px;
+            margin-bottom: 7px;
+        }
+    }
+
+    .nav-left {
+
+        margin: 0;
+        margin-left: auto;
+        margin-bottom: 2px;
+
+        &__item {
+            font-size: 16px;
+            line-height: 162%;
+            margin-left: 30px;
+        }
+    }
+
+    // Main
+
+    .main {
+        background: none;
+        padding: 40px;
+    }
+
+    // Card
+
+    .card {
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 0;
+        margin: auto;
+
+        &__item {
+            margin-bottom: 50px;
+            margin-top: 0;
+        }
+
+        &__header {
+            margin-bottom: 15px;
+        }
+
+        &__description {
+            margin-top: 15px;
+        }
+
+        &__input {
+            width: 665px;
+            height: 70px;
+            margin-left: -40px;
+            margin-bottom: 25px;
+
+            &__field {
+                padding-left: 40px;
+            }
+
+            &__btn {
+                width: 85px;
+                padding-right: 20px;
+            }
+        }
+
+        &__error {
+            font-size: 16px;
+            line-height: 175%;
+        }
+
+        &__terms, &__checkbox {
+            margin-top: 25px;
+        }
+
+        &__cup{
+            margin-top: 10px;
+        }
+    
+        &__success {
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+
+        &__social-icons {
+            margin-top: 50px;
+            padding-right: 0;
+
+            &__link {
+                margin: 0 10px;
+            }
+        }
+    }
+
+    // Wide and Short Screens
+
+    @media only screen and (max-height: 675px) {
+
+        .container {
+            padding: 0 100px;
+        }
+
+        .main {
+            padding-top: 20px;
+        }
+
+        .card {
+
+            &__item {
+                margin-bottom: 20px;
+            }
+
+            &__social-icons {
+                margin-top: 20px;
+            }
+        }
+    }
+}

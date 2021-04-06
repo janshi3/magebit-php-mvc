@@ -1,0 +1,52 @@
+@import 'config';
+@import 'home';
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: $white;
+    color: $text-dark;
+    height: 100vh;
+}
+
+// Typography
+
+h1, h2, h3, p {
+    font-weight: 400;
+}
+
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    line-height: 142%;
+}
+
+h3, p, a {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    font-size: 14px;
+    line-height: 186%;
+    color: $text-light;
+}
+
+p {
+    font-size: 16px;
+    line-height: 175%;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+hr {
+    border: 1px solid $border-color;
+    margin-top: 7px;
+}
+
+@import 'responsive';
