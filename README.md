@@ -1,4 +1,4 @@
-# MAgebit Task 3
+# Magebit Task 3
  Magebit Web Developer Test Task 3
  
 This is task 3 of [Magebit Web Developer Test](Web%20Developer%20Test%20-%202021.pdf)
