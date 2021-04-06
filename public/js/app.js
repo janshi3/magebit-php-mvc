@@ -103,7 +103,7 @@ const app = Vue.createApp({
             validTerms = this.validateTerms()
             validEmail = this.validateEmail()
 
-            // If Both Fields Are Valid, Confirm Successful Validation
+            // If Both Fields Are Valid, Confirm Successful Validation And Submit Form
 
             if (validEmail && validTerms) {
                 this.submitForm();

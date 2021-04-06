@@ -5,6 +5,7 @@ class Pages extends Controller {
 
     }
 
+    // Index page
     public function index() {
         $data = [
             'email' => '',
@@ -16,6 +17,7 @@ class Pages extends Controller {
         $this->view('index', $data);
     }
 
+    // Success page
     public function success() {
         $this->view('success');
     }

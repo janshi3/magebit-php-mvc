@@ -60,6 +60,8 @@
                             <input class="card__input__field" type="text" name="email" placeholder="Type your email address here..." 
                             <?php 
                             
+                            // Keep the input after refresh
+
                             if (isset($data['email']) && (!empty($data['email']))) {
                                 echo('value="'. $data['email'] . '"');
                             }
@@ -94,6 +96,8 @@
                         <label class="card__checkbox card__item">
                             <input class="card__checkbox--old" name="terms" type="checkbox" id="toggle" 
                             <?php 
+                            
+                            // Keep the input after refresh
                             
                             if (isset($data['terms']) && $data['terms']) {
                                 echo('checked');

@@ -72,13 +72,18 @@ class Database {
         return $this->statement->fetchColumn();
     }
 
+    // Create the database with tables
     private function createDB ($dbh, $dbName) {
+
+        // Create database
         $dbh->exec("CREATE DATABASE IF NOT EXISTS $dbName");
 
+        // Create providers table
         $dbh->exec("CREATE TABLE IF NOT EXISTS `providers` 
         ( `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY , 
         `provider` VARCHAR(255) NOT NULL);");
 
+        // Create emails table
         $dbh->exec("CREATE TABLE IF NOT EXISTS `emails` 
         ( `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY , 
         `provider_id` INT NOT NULL ,

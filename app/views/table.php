@@ -32,7 +32,7 @@
     <p>
     <?php 
 
-    // Displays If Emails Are Filtered By Provider
+    // Displayed If Emails Are Filtered By Provider
 
     if ($data['provider'] == '%') {} 
     else {
@@ -72,6 +72,8 @@
                 <th><a href="?order=date<?php echo('&&search=' . $data['search'] . '&&provider=' . $data['provider']) ?>">Date</a>
                 <a href="?order=date&&page=1&&sort=<?php echo !$data['sort'] . '&&search=' . $data['search'] . '&&provider=' . $data['provider'] ?>">⇅</a></th>
             </tr>
+
+            <!-- Emails -->
 
             <?php
                 foreach ($data['emails'] as $email) {

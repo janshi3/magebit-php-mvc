@@ -6,12 +6,10 @@ class Emails extends Controller {
         $this->emailModel = $this->model('Email');
     }
 
-    public function test() {
-        $this->emailModel->test();
-    }
-
     // Display the table
     public function index() {
+
+        // Records per page
         $rec_per_page = 10;
 
         $data = [
@@ -26,6 +24,7 @@ class Emails extends Controller {
             'total_pages' => ''
         ];
 
+        // Get all GET values
         if (isset($_GET['page']) && $_GET['page'] > 1) {
             $data['page'] = $_GET['page'];
         }
@@ -46,35 +45,47 @@ class Emails extends Controller {
             $data['search'] = $_GET['search'];
         }
 
+        // Calculate first record index
         if ($data['page'] > 1) {
             $start = ($data['page'] * $rec_per_page) - $rec_per_page;
         } else {
             $start = 0;
         }
+
+        // Get result count
         $data['result_count'] = count($this->emailModel->getEmailsUnsorted($data['provider'], $data['search']));
 
+        // Get page count
         $data['total_pages'] = ceil($data['result_count'] / $rec_per_page);
 
+        // Change sort from bool to ASC / DESC
         $data['sort'] == true ? $sort = 'ASC' : $sort = 'DESC';
 
+        // Get records to display
         $data['emails'] = $this->emailModel->getEmails($data['provider'], $data['search'], $data['order'], $sort, $start, $rec_per_page);
 
+        // Get all providers
         $providerObject = $this->emailModel->getProviders();
 
+        // Push providers into an array
         foreach ($providerObject as $provider) {
             array_push($data['all_providers'], $provider->provider);
         }
 
-
+        // Display the view with data
         $this->view('table', $data);
     }
 
+    // Delete or export emails
     public function deleteOrExport() {
+
+        // If delete is clicked
         if (isset($_POST['delete'])) {
+
+            // Get selected emails
             $selected = $_POST['select'];
         
-            // Delete All Selected Emails
-        
+            // Delete selected emails
             foreach($selected as $id) {
                 $this->emailModel->delete($id);
             }
@@ -83,20 +94,27 @@ class Emails extends Controller {
             header('location: http://localhost/emails');
         }
 
+        // If export is clicked
         elseif (isset($_POST['export'])) {
+
+            // Get selected emails
             $selected = $_POST['select'];
+
+            // Create an array for csv data
             $csvData = [];
 
+            // Add table headers
             array_push($csvData, array(
                 'Id',
                 'Email',
                 'Date'
             ));
         
-            // Export All Selected Emails
-        
+            // Get all selected email data
             foreach($selected as $id) {
                 $email = $this->emailModel->getExportData($id);
+
+                // Push each email data into csv data array
                 array_push($csvData, array(
                     $email->id,
                     $email->email,
@@ -104,12 +122,13 @@ class Emails extends Controller {
                 ));
             }
 
+            // Convert the csv data array into a .csv file, set the name to current time and download the file
             $this->download_send_headers("data_export_" . date("Y-m-d") . ".csv");
             echo $this->array2csv($csvData);
         }
     }
     
-
+    // Download a file
     private function download_send_headers($filename) {
         // disable caching
         $now = gmdate("D, d M Y H:i:s");
@@ -127,8 +146,7 @@ class Emails extends Controller {
         header("Content-Transfer-Encoding: binary");
     }
     
-    // Convert an Array To a ".csv" File
-    
+    // Convert an array To a ".csv" file
     private function array2csv(array &$array)
     {
         // Check If Array Is Not Empty
@@ -164,6 +182,8 @@ class Emails extends Controller {
 
         // Check if POST method is used
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            // Sanitize input
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
@@ -171,6 +191,7 @@ class Emails extends Controller {
                 'terms' => ''
             ];
 
+            // Check if terms are checked
             if (isset($_POST['terms'])) {
                 $data['terms'] = $_POST['terms'];
             }
@@ -179,16 +200,25 @@ class Emails extends Controller {
             }
 
             // Validate email
+
+            // Check if empty
             if (empty($data['email'])) {
                 $data['emailError'] = 'Email address is required';
             }
+
+            // Check if valid format
             elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
                 $data['emailError'] = 'Please provide a valid e-mail address';
             }
+
+            // Check if ends with .co
             elseif ($this->endsWith($data['email'], '.co')) {
                 $data['emailError'] = 'We are not accepting subscriptions from Colombia emails';
             }
+
             else {
+
+                // Check if already exists
                 if ($this->emailModel->findEmail($data['email'])) {
                     $data['emailError'] = 'Email already submitted';
                 }
@@ -207,12 +237,14 @@ class Emails extends Controller {
                     header('location: http://localhost/pages/success');
                 }
                 else {
+                    // Oops
                     die('Something went wrong D:');
                 }
                 
             }
         }
 
+        // Return to index page with data
         $this->view('index', $data);
     }
 }
